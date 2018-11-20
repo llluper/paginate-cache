@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchData, nextPage, prevPage, toggleDrawer, getPageTotal } from './actions';
-import Cards from '../../components/Cards';
+import Card from '../../components/Cards';
 import CardDetails from '../../components/CardDetails';
 import { cardsSelector } from './selectors';
 import { Button, Grid, Paper, Typography } from '@material-ui/core';
@@ -31,7 +31,7 @@ class CardsContainer extends Component {
   render() {
     const { cards, toggleDrawer } = this.props;
     return (
-      <div className="Cards" style={{ margin: '0 auto' }}>
+      <div className="Cards" style={{ margin: '100px auto 0' }}>
         <Grid container spacing={16} justify="center">
           {cards.list.length === 0 || (cards.currentPage > (cards.pagesRetrieved - 1))
             ? <Grid item sm={12}>
@@ -41,7 +41,7 @@ class CardsContainer extends Component {
               </Grid>
           : cards.list.slice((cards.currentPage * 12), (cards.currentPage * 12) + 12).map((card, index) => 
             <Grid key={index} item sm={3}>
-                <Cards card={card.coreData} index={(cards.currentPage * 12) + index} toggleDrawer={toggleDrawer} />
+                <Card card={card.coreData} index={(cards.currentPage * 12) + index} toggleDrawer={toggleDrawer} />
             </Grid>
           )}
         </Grid>
@@ -58,7 +58,7 @@ class CardsContainer extends Component {
   }
 }
 
-Cards.propTypes = {
+CardsContainer.propTypes = {
   cards: PropTypes.object,
   fetchData: PropTypes.func,
   getPageTotal: PropTypes.func,

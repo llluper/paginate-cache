@@ -32,7 +32,7 @@ export const Cards = ({ card, classes, index, toggleDrawer }) => {
       <Card className={classes.card} onClick={handleClick}>
         <CardContent>
           <Typography className={classes.title} color="textSecondary" gutterBottom>
-            New{index}
+            New
           </Typography>
           <Typography variant="h5" component="h2">
             {card.number}
