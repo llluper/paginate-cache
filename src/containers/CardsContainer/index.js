@@ -52,7 +52,7 @@ class CardsContainer extends Component {
           </Typography>
           <Button size="small" disabled={cards.currentPage + 1 >= cards.totalPages && cards.totalPages !== 0} onClick={this.nextPage}>NEXT</Button>
         </Grid>
-        {/* {cards.pagesRetrieved ? <CardDetails open={cards.open} card={cards.list[cards.openCard]} toggleDrawer={toggleDrawer} /> : ''} */}
+        {cards.pagesRetrieved ? <CardDetails index={cards.openCard} open={cards.open} card={cards.list[cards.openCard]} toggleDrawer={toggleDrawer} /> : ''}
       </div>
     );
   }
