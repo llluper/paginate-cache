@@ -7,18 +7,24 @@ My algorithm begins by fetching 4 pages of data in its first request (48 items).
 
 ### Run app locally: 
 
-In the project directory, you can run:
+In the project directory, run:
 
-### `npm start`
+##### `npm install`
+
+To install the apps dependent packages. 
+
+Then:
+
+##### `npm start`
 
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### `npm test`
+##### `npm test`
 
 Launches the test runner in the interactive watch mode.
 
-### `npm run build`
+##### `npm run build`
 
 Builds the app for production to the `build` folder.<br>
 It correctly bundles React in production mode and optimizes the build for the best performance.
