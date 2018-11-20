@@ -15,8 +15,8 @@ class CardsContainer extends Component {
     this.props.getPageTotal();
   }
   nextPage = () => {
-    // if currentPage is within 
-    if (this.props.cards.currentPage > (this.props.cards.pagesRetrieving) - 8) {
+    // if currentPage reaches 4 pages from the end of the list, cache another 4 (8 pages max cached ahead)
+    if (this.props.cards.currentPage > this.props.cards.pagesRetrieving - 7) {
       this.props.fetchData(this.props.cards.pagesRetrieving);
     }
     this.props.nextPage();
