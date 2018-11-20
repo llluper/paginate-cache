@@ -38,7 +38,7 @@ export const Cards = ({ card, classes, index, toggleDrawer }) => {
             {card.application}<br/>
             {card.assignee}
           </Typography>
-        <Typography className={classes.desc} component="p" noWrap>
+          <Typography className={classes.desc} component="p" noWrap>
             {card.shortDescription}
           </Typography>
         </CardContent>
