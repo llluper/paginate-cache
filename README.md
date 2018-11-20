@@ -1,14 +1,19 @@
-
-### Run the Docker file to create an image of the complied front end code 
+## Bonus Tasks
+### Run the Docker file to create an image of the compiled front end code 
 
 In the project directory, run:
 
-`docker build . -t llluper/cra-docker`
-`docker run -p 8080:80 llluper/cra-docker`
-Open [http://localhost:8080](http://localhost:8080) to view it in the browser.
+`docker build . -t llluper/cra-docker`<br>
+`docker run -p 8080:80 llluper/cra-docker`<br>
+Open [http://localhost:8080](http://localhost:8080) to view it in the browser.<br>
 
-NOTE: Replace <code>llluper</code> with your Docker username.
+NOTE: Replace `llluper` with your Docker username.
 
+### Run the bash script that compiles the React code and builds a Dockerfile
+
+In the project directory, run:
+
+`./build.sh`
 
 ### Run app locally 
 
