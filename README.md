@@ -3,6 +3,7 @@
 ### Time taken to build the app: 
 6 hours ~
 ### Caching and fetching algorithm: 
+My algorithm begins by fetching 4 pages of data in its first request (48 items). On the click of each NEXT page, a check is done to see if the current page is within 4 pages of the end of the card list, and if it is, another 4 pages are retrieved from the api. 
 
 ### Run app locally: 
 
