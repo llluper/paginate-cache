@@ -36,7 +36,7 @@ class CardsContainer extends Component {
           {cards.list.length === 0 || (cards.currentPage > (cards.pagesRetrieved - 1))
             ? <Grid item sm={12}>
                 <Paper style={{ padding: '50px 300px', margin: '256px 200px' }}>
-                  <div className="App-logo">Loading</div>
+                  <div className="App-logo">Loading...</div>
                 </Paper>
               </Grid>
           : cards.list.slice((cards.currentPage * 12), (cards.currentPage * 12) + 12).map((card, index) => 
@@ -75,7 +75,7 @@ const mapDispatchToProps = dispatch => ({
   getPageTotal: () => dispatch(getPageTotal()),
   nextPage: () => dispatch(nextPage()),
   prevPage: () => dispatch(prevPage()),
-  toggleDrawer: (open) => dispatch(toggleDrawer(open))
+  toggleDrawer: (open, index) => dispatch(toggleDrawer(open, index))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(CardsContainer);

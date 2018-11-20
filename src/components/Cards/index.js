@@ -46,7 +46,7 @@ export const Cards = ({ card, classes, index, toggleDrawer }) => {
           </Typography>
         </CardContent>
         <CardActions>
-        <Button onClick={handleClick} size="small">Learn More</Button>
+        <Button onClick={() => toggleDrawer(true, index)} size="small">Learn More</Button>
         </CardActions>
       </Card>
   );
