@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { fetchData, nextPage, prevPage, toggleDrawer, getPageTotal } from './actions';
+import { nextPage, prevPage, toggleDrawer } from './actions';
+import { fetchData, getPageTotal } from './thunks';
 import Card from '../../components/Cards';
 import CardDetails from '../../components/CardDetails';
 import { cardsSelector } from './selectors';
@@ -9,20 +10,19 @@ import { Button, Grid, Paper, Typography } from '@material-ui/core';
 
 class CardsContainer extends Component {
   componentWillMount = () => {
-    console.log('this.props.cards.openCard');
-    console.log(this.props.cards)
-
+    // fetch first round of data from api and get total page number
     this.props.fetchData(this.props.cards.pagesRetrieved);
     this.props.getPageTotal();
   }
   nextPage = () => {
+    // if currentPage is within 
     if (this.props.cards.currentPage > (this.props.cards.pagesRetrieving) - 8) {
       this.props.fetchData(this.props.cards.pagesRetrieving);
     }
     this.props.nextPage();
-    console.log(this.props.cards.list[this.props.cards.openCard]);
   }
   prevPage = () => {
+    // prevent user from going back past page 1
     if (this.props.cards.currentPage > 0) {
       this.props.prevPage();
     }
@@ -52,7 +52,7 @@ class CardsContainer extends Component {
           </Typography>
           <Button size="small" disabled={cards.currentPage + 1 >= cards.totalPages && cards.totalPages !== 0} onClick={this.nextPage}>NEXT</Button>
         </Grid>
-        {cards.pagesRetrieved ? <CardDetails index={cards.openCard} open={cards.open} card={cards.list[cards.openCard]} toggleDrawer={toggleDrawer} /> : ''}
+        {cards.pagesRetrieved ? <CardDetails index={cards.openIndex} open={cards.open} card={cards.list[cards.openIndex]} toggleDrawer={toggleDrawer} /> : ''}
       </div>
     );
   }

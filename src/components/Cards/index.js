@@ -15,9 +15,6 @@ const styles = {
   title: {
     fontSize: 14,
   },
-  pos: {
-    // marginBottom: 12,
-  },
   desc: {
     fontWeight: 400,
   }
@@ -37,7 +34,7 @@ export const Cards = ({ card, classes, index, toggleDrawer }) => {
           <Typography variant="h5" component="h2">
             {card.number}
           </Typography>
-          <Typography className={classes.pos} color="textSecondary">
+          <Typography color="textSecondary">
             {card.application}<br/>
             {card.assignee}
           </Typography>

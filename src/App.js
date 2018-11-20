@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import './App.css';
 import CardsContainer from './containers/CardsContainer';
-import { Grid } from '@material-ui/core';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import { CssBaseline, Grid } from '@material-ui/core';
+import './App.css';
 import 'typeface-roboto';
 
 class App extends Component {
@@ -11,7 +10,7 @@ class App extends Component {
       <div className="App">
         <CssBaseline />
         <Grid container alignItems="center" justify="center">
-          <Grid item xs={8}>
+          <Grid item xs={9}>
             <Grid container spacing={16} alignItems="center">
               <CardsContainer />
             </Grid>

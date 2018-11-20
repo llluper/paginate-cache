@@ -11,7 +11,7 @@ const style = {
     padding: '20px 0px'
   },
   row: {
-    padding: '8px 0',
+    padding: '9px 0',
     lineHeight: 1.6,
     fontWeight: 500
   },
