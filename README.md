@@ -23,8 +23,8 @@ My algorithm begins by fetching 4 pages of data in its first request (48 objects
 
 In the project directory, run:
 
-`docker build . -t llluper/cra-docker`<br>
-`docker run -p 8080:80 llluper/cra-docker`<br>
+##### `docker build . -t llluper/cra-docker`
+##### `docker run -p 8080:80 llluper/cra-docker`
 Open [http://localhost:8080](http://localhost:8080) to view it in the browser.<br>
 
 NOTE: Replace `llluper` with your Docker username.
@@ -33,7 +33,7 @@ NOTE: Replace `llluper` with your Docker username.
 
 In the project directory, run:
 
-`./build.sh`
+##### `./build.sh`
 
 
 ### Additional scripts
