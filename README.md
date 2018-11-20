@@ -1,24 +1,37 @@
 
+### Run the Docker file to create an image of the complied front end code 
 
-### Time taken to build the app: 
-6 hours ~
-### Caching and fetching algorithm: 
-My algorithm begins by fetching 4 pages of data in its first request (48 items). On the click of each NEXT page, a check is done to see if the current page is within 4 pages of the end of the card list, and if it is, another 4 pages are retrieved from the api. 
+In the project directory, run:
 
-### Run app locally: 
+`docker build . -t llluper/cra-docker`
+`docker run -p 8080:80 llluper/cra-docker`
+Open [http://localhost:8080](http://localhost:8080) to view it in the browser.
+
+NOTE: Replace <code>llluper</code> with your Docker username.
+
+
+### Run app locally 
 
 In the project directory, run:
 
 ##### `npm install`
 
-To install the apps dependent packages. 
-
-Then:
+Installs the packages the app is dependent on.
 
 ##### `npm start`
 
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+### Time taken to build the app 
+6 hours ~
+
+### Caching and fetching algorithm
+My algorithm begins by fetching 4 pages of data in its first request (48 objects). On the click of each NEXT page, a check is done to see if the current page is within 4 pages of the end of the card list, and if it is, another 4 pages are retrieved from the API, so max 8 pages are cached ahead. 48 objects are retrieved at a time to minimise the amount of calls to the API. Calls to the API are only made if needed. 
+
+### Additional scripts
+
+In the project directory, run:
 
 ##### `npm test`
 
@@ -31,7 +44,3 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.<br>
 The app is ready to be deployed.
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
