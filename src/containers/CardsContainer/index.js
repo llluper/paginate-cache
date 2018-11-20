@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { nextPage, prevPage, toggleDrawer } from './actions';
 import { fetchData, getPageTotal } from './thunks';
+import { cardsSelector } from './selectors';
 import Card from '../../components/Cards';
 import CardDetails from '../../components/CardDetails';
-import { cardsSelector } from './selectors';
 import { Button, Grid, Paper, Typography } from '@material-ui/core';
 
 class CardsContainer extends Component {
