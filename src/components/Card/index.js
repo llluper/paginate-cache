@@ -17,7 +17,7 @@ const styles = {
   }
 };
 
-const Card = ({ card, classes, index, toggleDrawer }) => {
+const Card = ({ card, index, toggleDrawer, classes }) => {
   const handleClick = () => {
     toggleDrawer(true, index);
   }

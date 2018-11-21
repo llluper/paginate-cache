@@ -15,16 +15,16 @@ describe('CardContainer reducer', () => {
       })
     ).toEqual({
       ...initialState,
-      pagesRetrieving: 4
+      pages: { ...initialState.pages, retrieving: 4 }
     })
 
     expect(
-      reducer({ ...initialState, pagesRetrieving: 4 }, {
+      reducer({ ...initialState, pages: { retrieving: 4 } }, {
         type: types.FETCH_DATA_BEGIN
       })
     ).toEqual({
       ...initialState,
-      pagesRetrieving: 8
+      pages: { retrieving: 8 }
     })
   })
 
@@ -35,18 +35,18 @@ describe('CardContainer reducer', () => {
       })
     ).toEqual({
       ...initialState,
-      currentPage: 1
+      pages: { ...initialState.pages, current: 1 }
     })
   })
 
   it('should handle PREV_PAGE', () => {
     expect(
-      reducer({ ...initialState, currentPage: 4 }, {
+      reducer({ ...initialState, pages: { current: 4 } }, {
         type: types.PREV_PAGE
       })
     ).toEqual({
       ...initialState,
-      currentPage: 3
+      pages: { current: 3 }
     })
   })
 
@@ -57,10 +57,6 @@ describe('CardContainer reducer', () => {
         isOpen: true, 
         openIndex: 0
       })
-    ).toEqual({
-      ...initialState,
-      isOpen: true,
-      openIndex: 0
-    })
+    ).toEqual({ ...initialState, details: { isOpen: true, openIndex: 0 } })
   })
 })
