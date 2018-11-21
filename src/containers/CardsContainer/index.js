@@ -34,7 +34,7 @@ class CardsContainer extends Component {
         <Paginator currentPage={cards.currentPage} totalPages={cards.totalPages} nextPage={this.nextPage} prevPage={this.prevPage} />
         {
           cards.pagesRetrieved 
-          ? <CardDetails index={cards.openIndex} open={cards.open} card={cards.list[cards.openIndex]} toggleDrawer={toggleDrawer} />  
+          ? <CardDetails index={cards.openIndex} open={cards.isOpen} card={cards.list[cards.openIndex]} toggleDrawer={toggleDrawer} />  
           : <div />
         }
       </div>
@@ -59,7 +59,7 @@ const mapDispatchToProps = dispatch => ({
   getPageTotal: () => dispatch(getPageTotal()),
   nextPage: () => dispatch(nextPage()),
   prevPage: () => dispatch(prevPage()),
-  toggleDrawer: (open, index) => dispatch(toggleDrawer(open, index))
+  toggleDrawer: (isOpen, openIndex) => dispatch(toggleDrawer(isOpen, openIndex))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(CardsContainer);
