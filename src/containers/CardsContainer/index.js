@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Cards, CardDetails, Paginator } from '../../components';
 import { nextPage, prevPage, toggleDrawer } from './actions';
 import { fetchData, getPageTotal } from './thunks';
 import { cardsSelector } from './selectors';
-import Cards from '../../components/Cards';
-import Paginator from '../../components/Paginator';
-import CardDetails from '../../components/CardDetails';
 
 class CardsContainer extends Component {
   componentWillMount = () => {
@@ -34,9 +32,11 @@ class CardsContainer extends Component {
       <div className="Cards" style={{ margin: '100px auto 0' }}>
         <Cards cards={cards} toggleDrawer={toggleDrawer} />
         <Paginator currentPage={cards.currentPage} totalPages={cards.totalPages} nextPage={this.nextPage} prevPage={this.prevPage} />
-        {cards.pagesRetrieved 
+        {
+          cards.pagesRetrieved 
           ? <CardDetails index={cards.openIndex} open={cards.open} card={cards.list[cards.openIndex]} toggleDrawer={toggleDrawer} />  
-          : ''}
+          : <div />
+        }
       </div>
     );
   }
@@ -44,11 +44,11 @@ class CardsContainer extends Component {
 
 CardsContainer.propTypes = {
   cards: PropTypes.object,
-  fetchData: PropTypes.func,
-  getPageTotal: PropTypes.func,
-  nextPage: PropTypes.func,
-  prevPage: PropTypes.func,
-  toggleDrawer: PropTypes.func
+  fetchData: PropTypes.func.isRequired,
+  getPageTotal: PropTypes.func.isRequired,
+  nextPage: PropTypes.func.isRequired,
+  prevPage: PropTypes.func.isRequired,
+  toggleDrawer: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({

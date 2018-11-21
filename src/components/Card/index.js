@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Card as MCard, CardActions, CardContent, Typography, withStyles }  from '@material-ui/core';
+import { 
+  Button, Card as MCard, CardActions, CardContent, Typography, withStyles 
+} from '@material-ui/core';
 
 const styles = {
   card: {

@@ -31,8 +31,6 @@ const CardDetails = ({ card, open, toggleDrawer, index }) => {
     <Drawer anchor="right" open={open} onClose={() => toggleDrawer(false, index)}>
       <div
         style={style.drawer}
-        tabIndex={0}
-        role="button"
         onClick={() => toggleDrawer(false, index)}
         onKeyDown={() => toggleDrawer(false, index)}
       >
