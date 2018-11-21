@@ -6,7 +6,7 @@ import {
 
 const styles = {
   card: {
-    minWidth: 200,
+    minWidth: 250,
     minHeight: 200  
   },
   title: {
