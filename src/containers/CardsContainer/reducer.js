@@ -22,11 +22,9 @@ export default (state = initialState, action) => {
     case NEXT_PAGE:
       return { ...state, pages: { ...state.pages, current: state.pages.current + 1 } };
     case PREV_PAGE:
-        return {
-          ...state, pages: { ...state.pages, current: state.pages.current - 1 } };
+      return { ...state, pages: { ...state.pages, current: state.pages.current - 1 } };
     case TOGGLE_DRAWER:
-      return {
-        ...state, details: { isOpen: action.isOpen, openIndex: action.openIndex } };
+      return { ...state, details: { isOpen: action.isOpen, openIndex: action.openIndex } };
     case FETCH_DATA_BEGIN:
       return { ...state, pages: { ...state.pages, retrieving: state.pages.retrieving + 4 } };
     case FETCH_DATA_SUCCESS:
