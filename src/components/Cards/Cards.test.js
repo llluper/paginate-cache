@@ -3,19 +3,29 @@ import { mount } from '../../enzyme.js';
 import Cards from './index';
 
 const cardsProps = {
-  card: {
-    coreData: {
-      number: 'INCX999',
-      assignee: 'Jeff',
-      shortDescription: 'I seem to have forgotten the password',
-      application: 'System'
-    }
+  cards: {
+    list:[
+    {
+      coreData: {
+        number: 'INCX999',
+        assignee: 'Jeff',
+        shortDescription: 'I seem to have forgotten the password',
+        application: 'System'
+      }
+    },
+    {
+      coreData: {
+        number: 'INCX321',
+        assignee: 'Keerthi',
+        shortDescription: 'Need to contact asap',
+        application: 'System'
+      }
+    }]
   },
-  index: 0,
   toggleDrawer: jest.fn()
 };
 
-describe('Cards tests', () => {
+describe('Card tests', () => {
   it('renders component', () => {
     expect(mount(
       <Cards {...cardsProps} />
@@ -25,7 +35,8 @@ describe('Cards tests', () => {
   it('renders the correct props', () => {
     const wrapper = mount(<Cards {...cardsProps} />);
 
-    // Expect the props to equal the static const CardsProps when mounted
-    expect(wrapper.props().card).toEqual({ ...cardsProps.card });
+    // Expect the props to equal the static const CardProps when mounted
+    expect(wrapper.props()).toEqual({ ...cardsProps });
+    expect(wrapper.props().cards.list).toHaveLength(2);
   });
 });

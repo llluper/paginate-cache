@@ -1,59 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+import { Grid, Paper }  from '@material-ui/core';
+import Card from '../Card'
 
-const styles = {
-  card: {
-    minWidth: 200,
-    minHeight: 200  
-  },
-  title: {
-    fontSize: 14,
-  },
-  desc: {
-    fontWeight: 400,
-  }
-};
-
-const Cards = ({ card, classes, index, toggleDrawer }) => {
-  const handleClick = () => {
-    console.log(index)
-    toggleDrawer(true, index);
-  }
+const Cards = ({ cards, toggleDrawer }) => {
   return (
-    <Card className={classes.card} onClick={handleClick}>
-      <CardContent>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
-          New
-        </Typography>
-        <Typography variant="h5" component="h2">
-          {card.number}
-        </Typography>
-        <Typography color="textSecondary">
-          {card.application}<br/>
-          {card.assignee}
-        </Typography>
-        <Typography className={classes.desc} component="p" noWrap>
-          {card.shortDescription}
-        </Typography>
-      </CardContent>
-      <CardActions>
-      <Button onClick={() => toggleDrawer(true, index)} size="small">Learn More</Button>
-      </CardActions>
-    </Card>
+    <Grid container spacing={16} justify="center">
+      {cards.list.length === 0 || (cards.currentPage > (cards.pagesRetrieved - 1))
+        ? <Grid item sm={12}>
+          <Paper style={{ padding: '50px 300px', margin: '256px 200px' }}>
+            <div className="App-logo">Loading...</div>
+          </Paper>
+        </Grid>
+        : cards.list.slice((cards.currentPage * 12), (cards.currentPage * 12) + 12).map((card, index) =>
+          <Grid key={index} item sm={3}>
+            <Card card={card.coreData} index={(cards.currentPage * 12) + index} toggleDrawer={toggleDrawer} />
+          </Grid>
+        )}
+    </Grid>
   );
 }
 
 Cards.propTypes = {
-  classes: PropTypes.object.isRequired,
-  card: PropTypes.object.isRequired,
-  index: PropTypes.number.isRequired,
+  cards: PropTypes.object.isRequired,
   toggleDrawer: PropTypes.func.isRequired
 };
 
-export default withStyles(styles)(Cards);
+export default Cards;
