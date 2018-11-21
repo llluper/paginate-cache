@@ -33,8 +33,8 @@ export const getPageTotalSuccess = data => ({
   payload: { data }
 }); 
 
-export const toggleDrawer = (open, index = 0) => ({
+export const toggleDrawer = (isOpen, openIndex = 0) => ({
   type: TOGGLE_DRAWER,
-  open,
-  index
+  isOpen,
+  openIndex
 });

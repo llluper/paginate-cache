@@ -3,13 +3,13 @@ import {
   NEXT_PAGE, PREV_PAGE, TOGGLE_DRAWER, GET_PAGE_TOTAL_SUCCESS 
 } from './actions';
 
-const initialState = {
+export const initialState = {
   pagesRetrieved: 0,
   pagesRetrieving: 0,
   currentPage: 0,
   totalPages: 0,
   list: [],
-  open: false,
+  isOpen: false,
   openIndex: 0
 }
 
@@ -20,7 +20,7 @@ export default (state = initialState, action) => {
     case PREV_PAGE:
       return { ...state, currentPage: state.currentPage - 1 };
     case TOGGLE_DRAWER:
-      return { ...state, open: action.open, openIndex: action.index };
+      return { ...state, isOpen: action.isOpen, openIndex: action.openIndex };
     case FETCH_DATA_BEGIN:
       return { ...state, pagesRetrieving: state.pagesRetrieving + 4 };
     case FETCH_DATA_SUCCESS:
