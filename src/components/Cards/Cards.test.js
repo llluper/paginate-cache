@@ -10,7 +10,9 @@ const cardsProps = {
       shortDescription: 'I seem to have forgotten the password',
       application: 'System'
     }
-  }
+  },
+  index: 0,
+  toggleDrawer: jest.fn()
 };
 
 describe('Cards tests', () => {

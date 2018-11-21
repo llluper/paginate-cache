@@ -5,8 +5,9 @@ import { nextPage, prevPage, toggleDrawer } from './actions';
 import { fetchData, getPageTotal } from './thunks';
 import { cardsSelector } from './selectors';
 import Card from '../../components/Cards';
+import Paginator from '../../components/Paginator';
 import CardDetails from '../../components/CardDetails';
-import { Button, Grid, Paper, Typography } from '@material-ui/core';
+import { Grid, Paper } from '@material-ui/core';
 
 class CardsContainer extends Component {
   componentWillMount = () => {
@@ -45,13 +46,9 @@ class CardsContainer extends Component {
             </Grid>
           )}
         </Grid>
-        <Grid container justify="center" style={{ marginTop: '10px' }}>
-          <Button size="small" disabled={cards.currentPage <= 0} onClick={this.prevPage}>BACK</Button>
-          <Typography component="p" style={{ lineHeight: 3, margin: '0 50px' }}>
-            Page {cards.currentPage + 1} of {cards.totalPages ? cards.totalPages : '???'}
-          </Typography>
-          <Button size="small" disabled={cards.currentPage + 1 >= cards.totalPages && cards.totalPages !== 0} onClick={this.nextPage}>NEXT</Button>
-        </Grid>
+        
+        <Paginator currentPage={cards.currentPage} totalPages={cards.totalPages} nextPage={this.nextPage} prevPage={this.prevPage} />
+        
         {cards.pagesRetrieved ? <CardDetails index={cards.openIndex} open={cards.open} card={cards.list[cards.openIndex]} toggleDrawer={toggleDrawer} /> : ''}
       </div>
     );

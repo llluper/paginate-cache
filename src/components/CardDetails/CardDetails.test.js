@@ -18,7 +18,10 @@ const cardDetailsProps = {
       activity_due: 'Soon',
       approval: 'Not requested'
     }
-  }
+  },
+  open: false,
+  toggleDrawer: jest.fn(),
+  index: 0
 };
 
 describe('CardDetails tests', () => {

@@ -26,7 +26,7 @@ const style = {
   }
 }
 
-export const CardDetails = ({ card, open, toggleDrawer, index }) => {
+const CardDetails = ({ card, open, toggleDrawer, index }) => {
   return (
     <Drawer anchor="right" open={open} onClose={() => toggleDrawer(false, index)}>
       <div
@@ -117,10 +117,10 @@ export const CardDetails = ({ card, open, toggleDrawer, index }) => {
 }
 
 CardDetails.propTypes = {
-  open: PropTypes.bool,
+  open: PropTypes.bool.isRequired,
   card: PropTypes.object.isRequired,
-  toggleDrawer: PropTypes.func,
-  index: PropTypes.number
+  toggleDrawer: PropTypes.func.isRequired,
+  index: PropTypes.number.isRequired
 };
 
 export default CardDetails;

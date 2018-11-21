@@ -20,40 +20,40 @@ const styles = {
   }
 };
 
-export const Cards = ({ card, classes, index, toggleDrawer }) => {
+const Cards = ({ card, classes, index, toggleDrawer }) => {
   const handleClick = () => {
     console.log(index)
     toggleDrawer(true, index);
   }
   return (
-      <Card className={classes.card} onClick={handleClick}>
-        <CardContent>
-          <Typography className={classes.title} color="textSecondary" gutterBottom>
-            New
-          </Typography>
-          <Typography variant="h5" component="h2">
-            {card.number}
-          </Typography>
-          <Typography color="textSecondary">
-            {card.application}<br/>
-            {card.assignee}
-          </Typography>
-          <Typography className={classes.desc} component="p" noWrap>
-            {card.shortDescription}
-          </Typography>
-        </CardContent>
-        <CardActions>
-        <Button onClick={() => toggleDrawer(true, index)} size="small">Learn More</Button>
-        </CardActions>
-      </Card>
+    <Card className={classes.card} onClick={handleClick}>
+      <CardContent>
+        <Typography className={classes.title} color="textSecondary" gutterBottom>
+          New
+        </Typography>
+        <Typography variant="h5" component="h2">
+          {card.number}
+        </Typography>
+        <Typography color="textSecondary">
+          {card.application}<br/>
+          {card.assignee}
+        </Typography>
+        <Typography className={classes.desc} component="p" noWrap>
+          {card.shortDescription}
+        </Typography>
+      </CardContent>
+      <CardActions>
+      <Button onClick={() => toggleDrawer(true, index)} size="small">Learn More</Button>
+      </CardActions>
+    </Card>
   );
 }
 
 Cards.propTypes = {
   classes: PropTypes.object.isRequired,
   card: PropTypes.object.isRequired,
-  index: PropTypes.number,
-  toggleDrawer: PropTypes.func
+  index: PropTypes.number.isRequired,
+  toggleDrawer: PropTypes.func.isRequired
 };
 
 export default withStyles(styles)(Cards);
