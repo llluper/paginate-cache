@@ -1,3 +1,6 @@
+# Paginate Cache 
+The goal was to build a cache of items on the front-end to achieve instant pagination.
+
 ### Run app locally 
 
 In the project directory, run:
